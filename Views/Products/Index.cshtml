@@ -1,0 +1,60 @@
+﻿@model IEnumerable<InventoryManagement.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-bookmark-plus-fill"></i> Cadastrar Aula</a>
+    <a asp-action="Create" class="btn btn-primary disabled"><i class="bi bi-award-fill"></i> Cadastrar Professor</a>
+    <a asp-action="Create" class="btn btn-primary disabled"><i class="bi bi-journal-plus"></i> Cadastrar Disciplina</a>
+    <a asp-action="Create" class="btn btn-primary disabled"><i class="bi bi-person-plus-fill"></i> Cadastrar Aluno</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Disciplina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Professor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disciplina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Professor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId"><i class="bi bi-pencil-fill"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId"><i class="bi bi-eye-fill"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId"><i class="bi bi-trash-fill"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
